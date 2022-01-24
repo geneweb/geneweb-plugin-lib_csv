@@ -1,0 +1,13 @@
+(rule (target plugin_lib_csv.ml) (action (run touch %{target})))
+
+(alias
+  (name plugin)
+  (deps plugin_lib_csv.cmxs)
+)
+
+(executable
+  (name plugin_lib_csv)
+  (embed_in_plugin_libraries csv)
+  (flags -linkall)
+  (modes (native plugin))
+)
